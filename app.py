@@ -270,27 +270,29 @@ def get_report():
                             imp.append(bilateral_imp[3]) 
                         if left_knee_grade == 'grade 4':
                             imp.append(bilateral_imp[4])
-                if (isinstance(right_knee_abnormality, list) and ('Osteophyte' in right_knee_abnormality or 'Reducing Joint Space' in right_knee_abnormality)) or (isinstance(left_knee_abnormality, list) and ('Osteophyte' in left_knee_abnormality or 'Reducing Joint Space' in left_knee_abnormality)):
-                        if right_knee_grade == 'Mild':
-                            imp.append(right_imp[0])
-                        if right_knee_grade == 'grade 1':
-                            imp.append(right_imp[1])
-                        if right_knee_grade == 'grade 2':
-                            imp.append(right_imp[2])
-                        if right_knee_grade == 'grade 3':
-                            imp.append(right_imp[3]) 
-                        if right_knee_grade == 'grade 4':
-                            imp.append(right_imp[4])
-                        if left_knee_grade == 'Mild':
-                            imp.append(left_imp[0])
-                        if left_knee_grade == 'grade 1':
-                            imp.append(left_imp[1])
-                        if left_knee_grade == 'grade 2':
-                            imp.append(left_imp[2])
-                        if left_knee_grade == 'grade 3':
-                            imp.append(left_imp[3]) 
-                        if left_knee_grade == 'grade 4':
-                            imp.append(left_imp[4])
+                   
+                elif(isinstance(right_knee_abnormality, list) and ('Osteophyte' in right_knee_abnormality or 'Reducing Joint Space' in right_knee_abnormality)) or (isinstance(left_knee_abnormality, list) and ('Osteophyte' in left_knee_abnormality or 'Reducing Joint Space' in left_knee_abnormality)):
+                        if left_knee_grade != right_knee_grade:
+                            if right_knee_grade == 'Mild':
+                                imp.append(right_imp[0])
+                            if right_knee_grade == 'grade 1':
+                                imp.append(right_imp[1])
+                            if right_knee_grade == 'grade 2':
+                                imp.append(right_imp[2])
+                            if right_knee_grade == 'grade 3':
+                                imp.append(right_imp[3]) 
+                            if right_knee_grade == 'grade 4':
+                                imp.append(right_imp[4])
+                            if left_knee_grade == 'Mild':
+                                imp.append(left_imp[0])
+                            if left_knee_grade == 'grade 1':
+                                imp.append(left_imp[1])
+                            if left_knee_grade == 'grade 2':
+                                imp.append(left_imp[2])
+                            if left_knee_grade == 'grade 3':
+                                imp.append(left_imp[3]) 
+                            if left_knee_grade == 'grade 4':
+                                imp.append(left_imp[4])
                 
                 if (isinstance(right_knee_abnormality, list) and ('Total Knee Replacement' in right_knee_abnormality)) and (isinstance(left_knee_abnormality, list) and 'Total Knee Replaceent' in left_knee_abnormality):
                     imp.append(tkr[4])
@@ -356,6 +358,6 @@ def get_report():
     
 
 if __name__ == '__main__':
-    app.run(host = '0.0.0.0',port='6060')
+    app.run(host = '0.0.0.0')
 
 

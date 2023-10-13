@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XRAY  Report Generation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/htmx.org/dist/htmx.js"></script>
+    <script src="D:/5c_work_space/AI_project/text_generation/static/dropdown.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Georgia&display=swap" rel="stylesheet">
+
+
+    <style>
+        .radio-label {
+            display: block; /* Display each radio button on a new line */
+        }
+
+        .checkbox-label {
+            display: block; 
+        }
+        body {
+            font-family: 'Georgia', serif;
+        }
+
+        /* Specific element with a custom font */
+        .custom-font {
+            font-family: 'Georgia', serif;
+        }
+    </style>
+        
+</head>
+<body class="custom-font bg-black">
+    <div class="flex h-screen ">
+        <div class="w-2/6 h-1/2 mt-6 mb-10 mr-2 bg-black p-4 rounded">
+            <div class="mt-2">
+                <label class="block text-white text-sm font-bold mb-2" for="abnormality">
+                  Select the Anatomy:
+                </label>
+                <div class="space-y-4">
+                    <form>
+                        <label class="radio-label bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 border border-gray-300 hover:border-gray-400 focus-within:border-red-500 p-2 rounded-lg transition-transform transform hover:scale-105 focus:scale-105 text-white">
+                            <input type="radio" id="anatomyRadio" name="Anatomy" value="Right" class="mr-2">
+                            Right
+                        </label>
+                    
+                        <label class="radio-label bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 relative border border-gray-300 hover:border-gray-400 focus-within:border-red-500 p-2 rounded-lg transition-transform transform hover:scale-105 focus:scale-105 text-white">
+                            <input type="radio" id="anatomyRadio" name="Anatomy" value="Left" class="mr-2">
+                            Left
+                        </label>
+                    
+                        <label class="radio-label bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 relative border border-gray-300 hover:border-gray-400 focus-within:border-red-500 p-2 rounded-lg transition-transform transform hover:scale-105 focus:scale-105 text-white">
+                            <input type="radio" id="anatomyRadio" name="Anatomy" value="Bilateral" class="mr-2">
+                            Bilateral
+                        </label>
+                    </form>
+                </div>
+                <div class="relative bottom-0 right-0 mt-4 mb-2 ml-4">
+                    <button class="bg-purple-500 hover:bg-blue-700 text-white font-bold py-2 px-20 rounded flex items-center" id="clearButton">
+                        <label class="block text-white text-sm font-bold mt-2 mr-2" for="abnormality">
+                            Clear Responses
+                        </label>
+                    </button>
+                      
+                </div>
+            </div>    
+        </div>
+
+        <!-- middle page -->
+
+        <div class="w-2/6 mt-10 mb-2 mr-2 bg-gray-900 p-4 rounded-2xl overflow-y-auto">
+            <div id="full-view-container">
+                <div class="mt-0">
+                    <label class="block text-white text-sm font-bold mb-2" for="abnormality">
+                    Select the Abnormality:
+                    </label>
+                </div>
+                <div class = "flex-horizontal">
+                    <form>
+                        <label class="checkbox-label mt-4 ml-2 text-white" for="option1">
+                            <input type="checkbox" id="option1" name="Abnormality" value="Normal">
+                                Normal
+                        </label>
+                        <label class="checkbox-label mt-4 ml-2 text-white" for="option1">
+                            <input type="checkbox" id="ost" name="Abnormality" value="Osteophyte">
+                                Osteophytes
+                        </label>
+                    
+                        <label class="checkbox-label mt-4 ml-2 text-white" for="option2">
+                            <input type="checkbox" id="rjs" name="Abnormality" value="Reducing Joint Space">
+                            Reducing Joint Space
+                        </label>
+                    
+                        <label class="checkbox-label mt-4 ml-2 text-white" for="option3">
+                            <input type="checkbox" id="scl" name="Abnormality" value="Sclerosis">
+                            Sclerosis
+                        </label>
+                    
+                        <label class="checkbox-label mt-4 ml-2 text-white" for="option4">
+                            <input type="checkbox" id="lbs" name="Abnormality" value="Loose Bodies">
+                                Loose Bodies
+                        </label>
+                
+                        <label class="checkbox-label mt-4 ml-2 text-white" for="option5">
+                            <input type="checkbox" id="fbl" name="Abnormality" value="Fabella">
+                            Fabella
+                        </label>
+                    
+                        <label class="checkbox-label mt-4 ml-2 text-white" for="option6">
+                            <input type="checkbox" id="pop" name="Abnormality" value="Post OP">
+                                Post OP
+                        </label>
+                    
+                        <label class="checkbox-label mt-4 ml-2 text-white" for="option7">
+                            <input type="checkbox" id="tkr" name="Abnormality" value="Total Knee Replacement">
+                                Total Knee Replacement
+                        </label>
+                    
+                        <label class="checkbox-label mt-4 ml-2 text-white" for="option8">
+                            <input type="checkbox" id="pts" name="Abnormality" value="Prominent Tibial Spike">
+                                Prominent Tibial Spike
+                        </label>
+                    
+                        <label class="checkbox-label mt-4 ml-2 text-white" for="option9">
+                            <input type="checkbox" id="pkr" name="Abnormality" value="Partial Knee Replacement">
+                            Partial Knee Replacement
+                        </label>
+
+                        <label class="checkbox-label mt-4 ml-2 text-white" for="option10">
+                            <input type="checkbox" id="cyt" name="Abnormality" value="Cyst">
+                            Cyst
+                        </label>
+
+                        <label class="checkbox-label mt-4 ml-2 text-white" for="option11">
+                            <input type="checkbox" id="slc" name="Abnormality" value="Sclerotic Changes">
+                            Sclerotic Changes
+                        </label>
+                    </form>
+                
+                </div>
+                <div class="mt-8">
+                    <label class="block text-white text-sm font-bold mb-2" for="abnormality">
+                        Grade:
+                    </label>
+                    <form>
+                        <label class="radio-label mt-4 ml-2 text-white" for="option10">
+                            <input type="radio" id="option10" name="grade" value="Mild">
+                            Mild
+                        </label>
+                    
+                        <label class="radio-label mt-4 ml-2 text-white" for="option11">
+                            <input type="radio" id="option11" name="grade" value="grade 1">
+                            Grade 1
+                        </label>
+                    
+                        <label class="radio-label mt-4 ml-2 text-white" for="option12">
+                            <input type="radio" id="option12" name="grade" value="grade 2">
+                            Grade 2
+                        </label>
+                    
+                        <label class="radio-label mt-4 ml-2 text-white" for="option13">
+                            <input type="radio" id="option13" name="grade" value="grade 3">
+                            Grade 3
+                        </label>
+                    
+                        <label class="radio-label mt-4 ml-2 text-white" for="option14">
+                            <input type="radio" id="option14" name="grade" value="grade 4">
+                            Grade 4
+                        </label>
+                        <label class="radio-label mt-4 ml-2 text-white" for="option15">
+                            <input type="radio" id="option14" name="grade" value="none">
+                            None
+                        </label>
+                    </form>
+                </div>
+            </div>
+           <!-- bilateral container -->
+                
+            <div id="bilateral-container" style="display: none;">
+                <div class="mt-2">
+                    <label class="block text-white text-sm font-bold mb-2 " for="abnormality">
+                    Select the Abnormality:
+                    </label>
+                </div>
+                <div class="mt-2">
+                    <label class="block text-red-500 text-sm font-bold mb-2" for="abnormality">
+                    For Left Knee:
+                    </label>
+                </div>
+                <div class = "flex-horizontal">
+                    <form>
+                        <label class="checkbox-label mt-4 ml-2 text-white" for="option1">
+                            <input type="checkbox" id="ost" name="leftregion" value="Normal">
+                                Normal
+                        </label>
+                        <label class="checkbox-label mt-4 ml-2 text-white" for="option1">
+                            <input type="checkbox" id="rjs" name="leftregion" value="Osteophyte">
+                                Osteophytes
+                            </label>
+                    
+                        <label class="checkbox-label mt-4 ml-2 text-white" for="option2">
+                            <input type="checkbox" id="option2" name="leftregion" value="Reducing Joint Space">
+                            Reducing Joint Space
+                        </label>
+                    
+                        <label class="checkbox-label mt-4 ml-2 text-white" for="option3">
+                            <input type="checkbox" id="option3" name="leftregion" value="Sclerosis">
+                            Sclerosis
+                        </label>
+                    
+                        <label class="checkbox-label mt-4 ml-2 text-white" for="option4">
+                            <input type="checkbox" id="option3" name="leftregion" value="Loose Bodies">
+                                Loose Bodies
+                        </label>
+                
+                        <label class="checkbox-label mt-4 ml-2 text-white" for="option5">
+                            <input type="checkbox" id="option3" name="leftregion" value="Fabella">
+                            Fabella
+                        </label>
+                    
+                        <label class="checkbox-label mt-4 ml-2 text-white" for="option6">
+                            <input type="checkbox" id="option3" name="leftregion" value="Post OP">
+                                Post OP
+                        </label>
+                    
+                        <label class="checkbox-label mt-4 ml-2 text-white" for="option7">
+                            <input type="checkbox" id="option3" name="leftregion" value="Total Knee Replacement">
+                                Total Knee Replacement
+                        </label>
+                    
+                        <label class="checkbox-label mt-4 ml-2 text-white" for="option8">
+                            <input type="checkbox" id="option3" name="leftregion" value="Prominent Tibial Spike">
+                                Prominent Tibial Spike
+                        </label>
+                    
+                        <label class="checkbox-label mt-4 ml-2 text-white" for="option9">
+                            <input type="checkbox" id="option3" name="leftregion" value="Partial Knee Replacement">
+                            Partial Knee Replacement
+                        </label>
+
+                        <label class="checkbox-label mt-4 ml-2 text-white" for="option10">
+                            <input type="checkbox" id="option3" name="leftregion" value="Cyst">
+                            Cyst
+                        </label>
+
+                        <label class="checkbox-label mt-4 ml-2 text-white" for="option11">
+                            <input type="checkbox" id="option3" name="leftregion" value="Sclerotic Changes">
+                            Sclerotic Changes
+                        </label>
+                    </form>
+                
+                </div>
+                <div class="mt-8">
+                    <label class="block text-white text-sm font-bold mb-2" for="abnormality">
+                        Grade:
+                    </label>
+                    <form>
+                        <label class="radio-label mt-4 ml-2 text-white" for="option10">
+                            <input type="radio" id="option10" name="leftgrade" value="Mild">
+                            Mild
+                        </label>
+                    
+                        <label class="radio-label mt-4 ml-2 text-white" for="option11">
+                            <input type="radio" id="option11" name="leftgrade" value="grade 1">
+                            Grade 1
+                        </label>
+                    
+                        <label class="radio-label mt-4 ml-2 text-white" for="option12">
+                            <input type="radio" id="option12" name="leftgrade" value="grade 2">
+                            Grade 2
+                        </label>
+                    
+                        <label class="radio-label mt-4 ml-2 text-white" for="option13">
+                            <input type="radio" id="option13" name="leftgrade" value="grade 3">
+                            Grade 3
+                        </label>
+                    
+                        <label class="radio-label mt-4 ml-2 text-white" for="option14">
+                            <input type="radio" id="option14" name="leftgrade" value="grade 4">
+                            Grade 4
+                        </label>
+                        <label class="radio-label mt-4 ml-2 text-white" for="option15">
+                            <input type="radio" id="option14" name="leftgrade" value="none">
+                            None
+                        </label>                        
+                    </form>
+                </div>
+
+                <div class="mt-8">
+                    <label class="block text-red-500 text-sm font-bold mb-2" for="abnormality">
+                    For Right Knee:
+                    </label>
+                </div>
+                <div class = "flex-horizontal">
+                    <form>
+                        <label class="checkbox-label mt-4 ml-2 text-white" for="option1">
+                            <input type="checkbox" id="nrm" name="rightregion" value="Normal">
+                                Normal
+                        </label>
+                        <label class="checkbox-label mt-4 ml-2 text-white" for="option1">
+                            <input type="checkbox" id="ost" name="rightregion" value="Osteophyte">
+                                Osteophytes
+                        </label>
+                    
+                        <label class="checkbox-label mt-4 ml-2 text-white" for="option2">
+                            <input type="checkbox" id="rjs" name="rightregion" value="Reducing Joint Space">
+                            Reducing Joint Space
+                        </label>
+                    
+                        <label class="checkbox-label mt-4 ml-2 text-white" for="option3">
+                            <input type="checkbox" id="option3" name="rightregion" value="Sclerosis">
+                            Sclerosis
+                        </label>
+                    
+                        <label class="checkbox-label mt-4 ml-2 text-white" for="option4">
+                            <input type="checkbox" id="option3" name="rightregion" value="Loose Bodies">
+                                Loose Bodies
+                        </label>
+                
+                        <label class="checkbox-label mt-4 ml-2 text-white" for="option5">
+                            <input type="checkbox" id="option3" name="rightregion" value="Fabella">
+                            Fabella
+                        </label>
+                    
+                        <label class="checkbox-label mt-4 ml-2 text-white" for="option6">
+                            <input type="checkbox" id="option3" name="rightregion" value="Post OP">
+                                Post OP
+                        </label>
+                    
+                        <label class="checkbox-label mt-4 ml-2 text-white" for="option7">
+                            <input type="checkbox" id="option3" name="rightregion" value="Total Knee Replacement">
+                                Total Knee Replacement
+                        </label>
+                    
+                        <label class="checkbox-label mt-4 ml-2 text-white" for="option8">
+                            <input type="checkbox" id="option3" name="rightregion" value="Prominent Tibial Spike">
+                                Prominent Tibial Spike
+                        </label>
+                    
+                        <label class="checkbox-label mt-4 ml-2 text-white" for="option9">
+                            <input type="checkbox" id="option3" name="rightregion" value="Partial Knee Replacement">
+                            Partial Knee Replacement
+                        </label>
+
+                        <label class="checkbox-label mt-4 ml-2 text-white" for="option10">
+                            <input type="checkbox" id="option3" name="rightregion" value="Cyst">
+                            Cyst
+                        </label>
+                        <label class="checkbox-label mt-4 ml-2 text-white" for="option11">
+                            <input type="checkbox" id="option3" name="rightregion" value="Sclerotic Changes">
+                            Sclerotic Changes
+                        </label>
+                    </form>
+                
+                </div>
+                <div class="mt-8">
+                    <label class="block text-white text-sm font-bold mb-2" for="abnormality">
+                        Grade:
+                    </label>
+                    <form>
+                        <label class="radio-label mt-4 ml-2 text-white" for="option10">
+                            <input type="radio" id="option10" name="rightgrade" value="Mild">
+                            Mild
+                        </label>
+                    
+                        <label class="radio-label mt-4 ml-2 text-white" for="option11">
+                            <input type="radio" id="option11" name="rightgrade" value="grade 1">
+                            Grade 1
+                        </label>
+                    
+                        <label class="radio-label mt-4 ml-2 text-white" for="option12">
+                            <input type="radio" id="option12" name="rightgrade" value="grade 2">
+                            Grade 2
+                        </label>
+                    
+                        <label class="radio-label mt-4 ml-2 text-white" for="option13">
+                            <input type="radio" id="option13" name="rightgrade" value="grade 3">
+                            Grade 3
+                        </label>
+                    
+                        <label class="radio-label mt-4 ml-2 text-white" for="option14">
+                            <input type="radio" id="option14" name="rightgrade" value="grade 4">
+                            Grade 4
+                        </label>
+                        <label class="radio-label mt-4 ml-2 text-white" for="option15">
+                            <input type="radio" id="option14" name="rightgrade" value="none">
+                            None
+                        </label>
+                    </form>
+                </div>
+            </div>
+
+            <div class="relative bottom-0 right-0 mt-2">
+                <button class="bg-purple-500 hover:bg-blue-700 text-white font-bold py-1 px-1 rounded flex items-center" id="getReportButton">
+                    <label class="block text-white text-sm font-bold mt-2 mr-2" for="abnormality">
+                        Get Report
+                    </label>
+                </button>
+                  
+            </div>
+        </div>
+
+
+        <!-- left side division -->
+        <div class="w-4/6 mt-6 mr-2 mb-2 bg-black p-4 rounded">
+            <div class="relative h-4/6 mr-2 bg-gray-900 p-4 rounded-2xl" >
+                <label class="block text-white text-sm font-bold mb-2" for="abnormality">
+                    OBSERVATION
+                </label>
+            
+                <div class="absolute top-0 right-0">
+                    <button class="bg-purple-500 hover:bg-blue-700 text-white font-bold py-1 px-1 rounded flex items-center" id="copyButton">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-4 mr-2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="relative h-5/6 mt-2 bg-white p-4 rounded-2xl overflow-auto" id="observationContainer">
+                    <div id="observationText"></div>
+                </div>
+            </div>
+
+            <div class="relative h-1/3 mt-4 mr-2 bg-gray-900 p-4 rounded-2xl">
+                <label class="block text-white text-sm font-bold mb-2" for="abnormality">
+                    IMPRESSION:
+                </label>
+                <div class="absolute top-0 right-0">
+                    <button class="bg-purple-500 hover:bg-blue-700 text-white font-bold py-1 px-1 rounded flex items-center" id="copyButton1">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-4 mr-2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="relative h-5/6 mt-2 bg-white p-4 rounded-2xl overflow-y-auto" id="impressionContainer">
+                     <ul id="impressionText"></ul>
+                </div>
+            </div>
+            
+        </div>
+        <!-- logout button -->
+        <!-- <div class="absolute top-0 right-0 mt-1">
+            <button class="bg-red-500 hover:bg-blue-700 text-white font-bold py-1 px-1 rounded flex items-center" id="logoutButton">
+                <label class="block text-white text-sm font-bold mt-2 mr-2" for="abnormality">
+                    Logout
+                </label>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 15l6-6m0 0l-6-6m6 6H9a6 6 0 000 12h3" />
+                </svg>
+            </button>
+              
+        </div> -->
+
+
+
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        // Function to copy the content of an element to the clipboard
+        function copyToClipboard(elementId) {
+            const element = document.getElementById(elementId);
+    
+            if (element) {
+                const range = document.createRange();
+                range.selectNode(element);
+                window.getSelection().removeAllRanges(); // Clear any current selection
+                window.getSelection().addRange(range);
+                
+                try {
+                    // Execute the copy command
+                    document.execCommand('copy');
+                    console.log('Content copied to clipboard');
+                } catch (err) {
+                    console.error('Unable to copy content to clipboard');
+                }
+    
+                // Clear the selection
+                window.getSelection().removeAllRanges();
+            }
+        }
+    
+        // Add a click event listener to the "copyButton"
+        document.getElementById('copyButton').addEventListener('click', function() {
+            copyToClipboard('observationContainer');
+        });
+
+        document.getElementById('copyButton1').addEventListener('click', function() {
+            copyToClipboard('impressionContainer');
+        });
+
+
+
+       
+        // to fade the container select abnormality container
+       
+            // Wait for the DOM to be ready
+        document.addEventListener("DOMContentLoaded", function () {
+            // Get the containers and radio buttons
+            const fullViewContainer = document.getElementById("full-view-container");
+            const bilateralContainer = document.getElementById("bilateral-container");
+            const radioButtons = document.querySelectorAll('input[type="radio"][name="Anatomy"]');
+
+            // Show the full view container initially
+            fullViewContainer.style.display = "block";
+
+            // Add a change event listener to the radio buttons
+            radioButtons.forEach(function (radioButton) {
+                radioButton.addEventListener("change", function () {
+                    if (radioButton.value === "Right" || radioButton.value === "Left") {
+                        // If "Right" or "Left" is selected, show the full view container and hide the bilateral container
+                        fullViewContainer.style.display = "block";
+                        bilateralContainer.style.display = "none";
+                    } else {
+                        // If "Bilateral" is selected, hide the full view container and show the bilateral container
+                        fullViewContainer.style.display = "none";
+                        bilateralContainer.style.display = "block";
+                    }
+                });
+            });
+        });
+
+        // Function to collect the selected values
+        function collectSelectedValues() {
+            const selectedValues = {
+                Anatomy: "",
+                Abnormality: [],
+                Grade: "",
+                Bilateral: {
+                    LeftKnee: {
+                        Abnormality: [],
+                        Grade: "",
+                    },
+                    RightKnee: {
+                        Abnormality: [],
+                        Grade: "",
+                    },
+                },
+            };
+
+            // Collect selected anatomy
+            const anatomyRadios = document.querySelectorAll('input[name="Anatomy"]');
+            anatomyRadios.forEach((radio) => {
+                if (radio.checked) {
+                    selectedValues.Anatomy = radio.value;
+                }
+            });
+
+            // Collect selected abnormalities in the full view
+            const abnormalityCheckboxes = document.querySelectorAll('input[name="Abnormality"]');
+            abnormalityCheckboxes.forEach((checkbox) => {
+                if (checkbox.checked) {
+                    selectedValues.Abnormality.push(checkbox.value);
+                }
+            });
+
+            // Collect selected grade in the full view
+            const gradeRadios = document.querySelectorAll('input[name="grade"]');
+            gradeRadios.forEach((radio) => {
+                if (radio.checked) {
+                    selectedValues.Grade = radio.value;
+                }
+            });
+
+            // Collect selected abnormalities and grade in the bilateral container for left and right knees
+            const leftKneeAbnormalityCheckboxes = document.querySelectorAll('#bilateral-container input[name="leftregion"]');
+            leftKneeAbnormalityCheckboxes.forEach((checkbox) => {
+                if (checkbox.checked) {
+                    selectedValues.Bilateral.LeftKnee.Abnormality.push(checkbox.value);
+                }
+            });
+
+            const leftKneeGradeRadios = document.querySelectorAll('#bilateral-container input[name="leftgrade"]');
+            leftKneeGradeRadios.forEach((radio) => {
+                if (radio.checked) {
+                    selectedValues.Bilateral.LeftKnee.Grade = radio.value;
+                }
+            });
+            
+
+            // Similarly, collect selected values for the right knee
+            const rightKneeAbnormalityCheckboxes = document.querySelectorAll('#bilateral-container input[name="rightregion"]');
+            rightKneeAbnormalityCheckboxes.forEach((checkbox) => {
+                if (checkbox.checked) {
+                    selectedValues.Bilateral.RightKnee.Abnormality.push(checkbox.value);
+                }
+            });
+
+            const rightKneeGradeRadios = document.querySelectorAll('#bilateral-container input[name="rightgrade"]');
+            rightKneeGradeRadios.forEach((radio) => {
+                if (radio.checked) {
+                    selectedValues.Bilateral.RightKnee.Grade = radio.value;
+                }
+            });
+
+            return selectedValues;
+        }
+
+           // Add a click event listener to the "Get Report" button
+        document.getElementById('getReportButton').addEventListener('click', function () {
+            const selectedValues = collectSelectedValues();
+
+                    // Check if either "Osteophyte" or "Reducing Joint Space" is selected
+                const osteophyteChecked = document.getElementById("ost").checked;
+                const reducingJointSpaceChecked = document.getElementById("rjs").checked;
+
+                // Check if any grade is selected
+                const gradeOptions = document.getElementsByName("grade");
+                let gradeSelected = false;
+                for (const option of gradeOptions) {
+                    if (option.checked) {
+                        gradeSelected = true;
+                        break;
+                    }
+                }
+
+                if ((!selectedValues.Anatomy || selectedValues.Abnormality.length === 0) &&
+                    (selectedValues.Bilateral.LeftKnee.Abnormality.length === 0 ||
+                    selectedValues.Bilateral.RightKnee.Abnormality.length === 0)
+                ) {
+                    alert("Please select an Anatomy, at least one Abnormality, and a Grade before getting the report!");
+                    return; // Prevent further execution
+                }
+            // Send the selected values to the Flask route via a POST request
+            fetch('/get_report', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(selectedValues),
+            })
+            .then(response => response.json())
+            .then(data => {
+                const observationContainer = document.getElementById('observationContainer');
+                const impressionContainer = document.getElementById('impressionContainer');
+
+                if (data.observations && data.observations.length > 0) {
+                    observationContainer.innerHTML = '';
+                    data.observations.forEach(observationGroup => {
+                        const observationItem = document.createElement('div');
+
+                        if (Array.isArray(observationGroup)) {
+                            observationGroup.forEach(observation => {
+                                const p = document.createElement('p');
+                                p.textContent = observation.trim();
+                                observationItem.appendChild(p);
+                            });
+                        } else {
+                            const p = document.createElement('p');
+                            p.textContent = observationGroup.trim();
+                            observationItem.appendChild(p);
+                        }
+
+                        observationContainer.appendChild(observationItem);
+                    });
+                } else {
+                    console.error('Invalid response from Flask:', data);
+                }
+
+                if (data.impressions && data.impressions.length > 0) {
+                    impressionContainer.innerHTML = '';
+                    data.impressions.forEach(impression => {
+                        const p = document.createElement('p');
+                        p.textContent = impression.trim();
+                        impressionContainer.appendChild(p);
+                    });
+                } else {
+                    console.error('Invalid response from Flask:', data);
+                }
+            });
+
+
+
+
+        });
+
+        // Add a click event listener to the "Clear" button
+        document.getElementById('clearButton').addEventListener('click', function () {
+            // Reload the whole page
+            location.reload();
+        });
+        
+
+        function clearRadioButtons() {
+            var ele = document.querySelectorAll("input[type=radio]");
+            for (var i = 0; i < ele.length; i++) {
+                ele[i].checked = false;
+            }
+        }
+        function clearCheckboxes() {
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(function (checkbox) {
+                checkbox.checked = false;
+            });
+        }
+
+
+        document.getElementById('anatomyRadio').addEventListener('click', function () {
+        // Clear the selected values
+        selectedValues.Anatomy = '';
+        selectedValues.Abnormality = [];
+        selectedValues.Grade = '';
+        selectedValues.Bilateral.LeftKnee.Abnormality = [];
+        selectedValues.Bilateral.LeftKnee.Grade = '';
+        selectedValues.Bilateral.RightKnee.Abnormality = [];
+        selectedValues.Bilateral.RightKnee.Grade = '';
+
+        // Clear the checked state of all radio buttons
+        clearRadioButtons();
+
+        // Clear the checked state of all checkboxes
+        clearCheckboxes();
+
+        // Clear the content of Observation and Impression containers
+        document.getElementById('observationContainer').innerHTML = '';
+        document.getElementById('impressionContainer').innerHTML = '';
+        });
+
+
+
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

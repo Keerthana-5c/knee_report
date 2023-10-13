@@ -382,11 +382,21 @@ def get_report():
                         imp.append(fabella[1])
 
 
-    if imp != []:
-        print(imp) 
     if imp == []:
         imp.append(norm_imp[0])
         print(imp)
+
+    # Check the second condition
+    for i in range(len(imp)):
+        if "Suggestive of" in imp[i]:
+            first_occurrence = imp[i].find("Suggestive of")
+            if first_occurrence != -1:
+                if i == 1:
+                    # Replace the second occurrence of "Suggestive of" with "and"
+                    imp[i] = imp[i][:first_occurrence] + " and" + imp[i][first_occurrence + len("Suggestive of"):]
+                else:
+                    # If it's not the second element, you can choose to do something else
+                    pass
 
     
     result = {"observations": obs1, "impressions": imp}

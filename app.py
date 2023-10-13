@@ -28,6 +28,8 @@ def get_report():
     right_imp = ['Suggestive of Mild Knee Osteoarthritis in the Right knee joint','Suggestive of Grade 1 Knee Osteoarthritis in the Right knee joint','Suggestive of Grade 2 Knee Osteoarthritis in the Right knee joint','Suggestive of Grade 3 Knee Osteoarthritis in the Right knee joint','Suggestive of Grade 4 Knee Osteoarthritis in the Right knee joint']
     left_imp = ['Suggestive of Mild Knee Osteoarthritis in the left knee joint','Suggestive of Grade 1 Knee Osteoarthritis in the left knee joint','Suggestive of Grade 2 Knee Osteoarthritis in the left knee joint','Suggestive of Grade 3 Knee Osteoarthritis in the left knee joint','Suggestive of Grade 4 Knee Osteoarthritis in the left knee joint']
     norm_imp = ['NO STRUCTURAL ABNORMALITY SEEN.']
+    acl = ['Post Operative changes are noted in the form of ACL Reconstruction with no evidence of any metal implants displacement in present x ray.', 'Post Operative changes are noted in the form of ACL Reconstruction with no evidence of any metal implants displacement in Left Knee. ', 'Post Operative changes are noted in the form of ACL Reconstruction with no evidence of any metal implants displacement in Right Knee.', 'Post Operative changes are noted in the form of ACL Reconstruction with no evidence of any metal implants displacement in both the Knee in the x ray.']
+    slr = ['Sclerosis found subchondral region of Tibia.','Sclerosis found subchondral region of Tibia of Left Knee','Sclerosis found subchondral region of Tibia of Right Knee','Sclerosis found subchondral region of Tibia of both the Knee Joints']
     obs = []
     obs_r = ["Right Knee:\n"]
     obs_l = ["Left Knee:\n"]
@@ -61,6 +63,7 @@ def get_report():
                 obs.append(arthritis[5])
             elif isinstance(abnormality_value, list)and 'Osteophyte' in abnormality_value and 'Reducing Joint Space' not in abnormality_value and 'Sclerosis' in abnormality_value and 'Cyst' not in abnormality_value :
                 obs.append(arthritis[6])
+
             
             if isinstance(abnormality_value, list)and 'Total Knee Replacement' in abnormality_value:
                 obs.append(tkr[0])
@@ -68,6 +71,10 @@ def get_report():
                 obs.append(tkr[1])
             if isinstance(abnormality_value, list)and 'Post OP' in abnormality_value:
                 obs.append(postop[0])
+            if isinstance(abnormality_value, list)and 'ACL Reconstruction' in abnormality_value:
+                obs.append(acl[0])
+            if isinstance(abnormality_value, list)and 'Osteophyte' not in abnormality_value and 'Reducing Joint Space' not in abnormality_value and 'Sclerosis' in abnormality_value and 'Cyst' not in abnormality_value :
+                obs.append(slr[0])
             if isinstance(abnormality_value, list)and 'Loose Bodies' in abnormality_value:
                 obs.append(loosebody[0])
             if isinstance(abnormality_value, list)and 'Sclerotic Changes' in abnormality_value:
@@ -76,6 +83,7 @@ def get_report():
                 obs.append(pts[0])
             if isinstance(abnormality_value, list)and 'Fabella' in abnormality_value:
                 obs.append(fabella[0])
+
 
         
 
@@ -103,6 +111,10 @@ def get_report():
                 obs.append(tkr[1])
             if isinstance(abnormality_value, list)and 'Post OP' in abnormality_value:
                 obs.append(postop[0])
+            if isinstance(abnormality_value, list)and 'ACL Reconstruction' in abnormality_value:
+                obs.append(acl[0]) 
+            if isinstance(abnormality_value, list)and 'Osteophyte' not in abnormality_value and 'Reducing Joint Space' not in abnormality_value and 'Sclerosis' in abnormality_value and 'Cyst' not in abnormality_value :
+                obs.append(slr[0])                               
             if isinstance(abnormality_value, list)and 'Loose Bodies' in abnormality_value:
                 obs.append(loosebody[0])
             if isinstance(abnormality_value, list)and 'Sclerotic Changes' in abnormality_value:
@@ -150,6 +162,10 @@ def get_report():
                             obs_r.append(tkr[1])
                         if isinstance(right_knee_abnormality, list)and 'Post OP' in right_knee_abnormality:
                             obs_r.append(postop[0])
+                        if isinstance(right_knee_abnormality, list)and 'ACL Reconstruction' in right_knee_abnormality:
+                            obs_r.append(acl[2])  
+                        if isinstance(right_knee_abnormality, list)and 'Osteophyte' not in right_knee_abnormality and 'Reducing Joint Space' not in right_knee_abnormality and 'Sclerosis' in right_knee_abnormality and 'Cyst' not in right_knee_abnormality :
+                            obs_r.append(slr[2])                          
                         if isinstance(right_knee_abnormality, list)and 'Loose Bodies' in right_knee_abnormality:
                             obs_r.append(loosebody[0])
                         if isinstance(right_knee_abnormality, list)and 'Sclerotic Changes' in right_knee_abnormality:
@@ -186,6 +202,11 @@ def get_report():
                             obs_l.append(tkr[3])
                         if isinstance(left_knee_abnormality, list)and 'Post OP' in left_knee_abnormality:
                             obs_l.append(postop[0])
+                        if isinstance(left_knee_abnormality, list)and 'ACL Reconstruction' in left_knee_abnormality:
+                            obs_l.append(acl[1]) 
+                        if isinstance(left_knee_abnormality, list)and 'Osteophyte' not in left_knee_abnormality and 'Reducing Joint Space' not in left_knee_abnormality and 'Sclerosis' in left_knee_abnormality and 'Cyst' not in left_knee_abnormality :
+                            obs_l.append(slr[1]) 
+
                         if isinstance(left_knee_abnormality, list)and 'Loose Bodies' in left_knee_abnormality:
                             obs_l.append(loosebody[0])
                         if isinstance(left_knee_abnormality, list)and 'Sclerotic Changes' in left_knee_abnormality:
@@ -233,6 +254,10 @@ def get_report():
                 imp.append(tkr[1])
             if isinstance(abnormality_value, list)and 'Post OP' in abnormality_value:
                 imp.append(postop[0])
+            if isinstance(abnormality_value, list)and 'ACL Reconstruction' in abnormality_value:
+                imp.append(acl[0])
+            # if isinstance(abnormality_value, list)and 'Sclerosis' in abnormality_value:
+            #     imp.append(slr[0])                            
             if isinstance(abnormality_value, list)and 'Loose Bodies' in abnormality_value:
                 imp.append(loosebody[0])
             if isinstance(abnormality_value, list)and 'Sclerotic Changes' in abnormality_value:
@@ -271,7 +296,7 @@ def get_report():
                         if left_knee_grade == 'grade 4':
                             imp.append(bilateral_imp[4])
                    
-                elif(isinstance(right_knee_abnormality, list) and ('Osteophyte' in right_knee_abnormality or 'Reducing Joint Space' in right_knee_abnormality)) or (isinstance(left_knee_abnormality, list) and ('Osteophyte' in left_knee_abnormality or 'Reducing Joint Space' in left_knee_abnormality)):
+                if(isinstance(right_knee_abnormality, list) and ('Osteophyte' in right_knee_abnormality or 'Reducing Joint Space' in right_knee_abnormality)) or  (isinstance(left_knee_abnormality, list) and ('Osteophyte' in left_knee_abnormality or 'Reducing Joint Space' in left_knee_abnormality)):
                         if left_knee_grade != right_knee_grade:
                             if right_knee_grade == 'Mild':
                                 imp.append(right_imp[0])
@@ -300,6 +325,10 @@ def get_report():
                     imp.append(tkr[5])
                 if (isinstance(right_knee_abnormality, list) and ('Post OP' in right_knee_abnormality)) and (isinstance(left_knee_abnormality, list) and 'Post OP' in left_knee_abnormality):
                     imp.append(postop[3])
+                if (isinstance(right_knee_abnormality, list) and ('ACL Reconstruction' in right_knee_abnormality)) and (isinstance(left_knee_abnormality, list) and 'ACL Reconstruction' in left_knee_abnormality):
+                    imp.append(acl[3])        
+                # if (isinstance(right_knee_abnormality, list) and ('Sclerosis' in right_knee_abnormality)) and (isinstance(left_knee_abnormality, list) and 'Sclerosis' in left_knee_abnormality):
+                #     imp.append(slr[3])                                   
                 if (isinstance(right_knee_abnormality, list) and ('Loose Bodies' in right_knee_abnormality)) and (isinstance(left_knee_abnormality, list) and 'Loose Bodies' in left_knee_abnormality):
                     imp.append(loosebody[3])
                 if (isinstance(right_knee_abnormality, list) and ('Sclerotic Changes' in right_knee_abnormality)) and (isinstance(left_knee_abnormality, list) and 'Sclerotic Changes' in left_knee_abnormality):
@@ -319,6 +348,10 @@ def get_report():
                         imp.append(tkr[1])
                     if (isinstance(right_knee_abnormality, list)and 'Post OP' in right_knee_abnormality) and (isinstance(left_knee_abnormality, list)and ('Post OP' not in left_knee_abnormality)):
                         imp.append(postop[2])
+                    if (isinstance(right_knee_abnormality, list)and 'ACL Reconstruction' in right_knee_abnormality) and (isinstance(left_knee_abnormality, list)and ('ACL Reconstruction' not in left_knee_abnormality)):
+                        imp.append(acl[2])
+                    # if (isinstance(right_knee_abnormality, list)and 'Sclerosis' in right_knee_abnormality) and (isinstance(left_knee_abnormality, list)and ('Sclerosis' not in left_knee_abnormality)):
+                    #     imp.append(slr[2])
                     if (isinstance(right_knee_abnormality, list)and 'Prominent Tibial Spike' in right_knee_abnormality) and (isinstance(left_knee_abnormality, list)and ('Prominent Tibial Spike' not in left_knee_abnormality)):
                         imp.append(pts[2])
                     if (isinstance(right_knee_abnormality, list)and 'Sclerotic Changes' in right_knee_abnormality) and (isinstance(left_knee_abnormality, list)and ('Sclerotic Changes' not in left_knee_abnormality)):
@@ -335,6 +368,10 @@ def get_report():
                         imp.append(tkr[3])
                     if (isinstance(left_knee_abnormality, list)and 'Post OP' in left_knee_abnormality) and (isinstance(right_knee_abnormality, list)and ('Post OP' not in right_knee_abnormality)):
                         imp.append(postop[1])
+                    if (isinstance(left_knee_abnormality, list)and 'ACL Reconstruction' in left_knee_abnormality) and (isinstance(right_knee_abnormality, list)and ('ACL Reconstruction' not in right_knee_abnormality)):
+                        imp.append(acl[1])
+                    # if (isinstance(left_knee_abnormality, list)and 'Sclerosis' in left_knee_abnormality) and (isinstance(right_knee_abnormality, list)and ('Sclerosis' not in right_knee_abnormality)):
+                    #     imp.append(slr[1])
                     if (isinstance(left_knee_abnormality, list)and 'Loose Bodies' in left_knee_abnormality)and  (isinstance(right_knee_abnormality, list)and ('Loose Bodies' not in right_knee_abnormality)):
                         imp.append(loosebody[1])
                     if (isinstance(left_knee_abnormality, list)and 'Sclerotic Changes' in left_knee_abnormality) and (isinstance(right_knee_abnormality, list)and ('Sclerotic Changes' not in right_knee_abnormality)):

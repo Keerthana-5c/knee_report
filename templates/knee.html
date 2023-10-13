@@ -19,6 +19,11 @@
         .checkbox-label {
             display: block; 
         }
+        .checkbox-label input[type="checkbox"] {
+            width: 15px; /* Adjust the width to increase the checkbox size */
+            height: 15px; /* Adjust the height to increase the checkbox size */
+        }
+
         body {
             font-family: 'Georgia', serif;
         }
@@ -77,63 +82,67 @@
                 </div>
                 <div class = "flex-horizontal">
                     <form>
-                        <label class="checkbox-label mt-4 ml-2 text-white" for="option1">
+                        <label class="checkbox-label mt-4 ml-2 text-white btn" for="option1">
                             <input type="checkbox" id="option1" name="Abnormality" value="Normal">
                                 Normal
                         </label>
-                        <label class="checkbox-label mt-4 ml-2 text-white" for="option1">
+                        <label class="checkbox-label mt-4 ml-2 text-white btn" for="option1">
                             <input type="checkbox" id="ost" name="Abnormality" value="Osteophyte">
                                 Osteophytes
                         </label>
                     
-                        <label class="checkbox-label mt-4 ml-2 text-white" for="option2">
+                        <label class="checkbox-label mt-4 ml-2 text-white btn" for="option2">
                             <input type="checkbox" id="rjs" name="Abnormality" value="Reducing Joint Space">
                             Reducing Joint Space
                         </label>
                     
-                        <label class="checkbox-label mt-4 ml-2 text-white" for="option3">
+                        <label class="checkbox-label mt-4 ml-2 text-white btn" for="option3">
                             <input type="checkbox" id="scl" name="Abnormality" value="Sclerosis">
                             Sclerosis
                         </label>
                     
-                        <label class="checkbox-label mt-4 ml-2 text-white" for="option4">
+                        <label class="checkbox-label mt-4 ml-2 text-white btn" for="option4">
                             <input type="checkbox" id="lbs" name="Abnormality" value="Loose Bodies">
                                 Loose Bodies
                         </label>
                 
-                        <label class="checkbox-label mt-4 ml-2 text-white" for="option5">
+                        <label class="checkbox-label mt-4 ml-2 text-white btn" for="option5">
                             <input type="checkbox" id="fbl" name="Abnormality" value="Fabella">
                             Fabella
                         </label>
                     
-                        <label class="checkbox-label mt-4 ml-2 text-white" for="option6">
+                        <label class="checkbox-label mt-4 ml-2 text-white btn" for="option6">
                             <input type="checkbox" id="pop" name="Abnormality" value="Post OP">
                                 Post OP
                         </label>
                     
-                        <label class="checkbox-label mt-4 ml-2 text-white" for="option7">
+                        <label class="checkbox-label mt-4 ml-2 text-white btn" for="option7">
                             <input type="checkbox" id="tkr" name="Abnormality" value="Total Knee Replacement">
                                 Total Knee Replacement
                         </label>
                     
-                        <label class="checkbox-label mt-4 ml-2 text-white" for="option8">
+                        <label class="checkbox-label mt-4 ml-2 text-white btn" for="option8">
                             <input type="checkbox" id="pts" name="Abnormality" value="Prominent Tibial Spike">
                                 Prominent Tibial Spike
                         </label>
                     
-                        <label class="checkbox-label mt-4 ml-2 text-white" for="option9">
+                        <label class="checkbox-label mt-4 ml-2 text-white btn" for="option9">
                             <input type="checkbox" id="pkr" name="Abnormality" value="Partial Knee Replacement">
                             Partial Knee Replacement
                         </label>
 
-                        <label class="checkbox-label mt-4 ml-2 text-white" for="option10">
+                        <label class="checkbox-label mt-4 ml-2 text-white btn"  for="option10">
                             <input type="checkbox" id="cyt" name="Abnormality" value="Cyst">
                             Cyst
                         </label>
 
-                        <label class="checkbox-label mt-4 ml-2 text-white" for="option11">
+                        <label class="checkbox-label mt-4 ml-2 text-white btn" for="option11">
                             <input type="checkbox" id="slc" name="Abnormality" value="Sclerotic Changes">
                             Sclerotic Changes
+                        </label>
+                        <label class="checkbox-label mt-4 ml-2 text-white btn" for="option11">
+                            <input type="checkbox" id="slc" name="Abnormality" value="ACL Reconstruction">
+                            ACL Reconstruction
                         </label>
                     </form>
                 
@@ -143,31 +152,31 @@
                         Grade:
                     </label>
                     <form>
-                        <label class="radio-label mt-4 ml-2 text-white" for="option10">
+                        <label class="radio-label mt-4 ml-2 text-white btn" for="option10">
                             <input type="radio" id="option10" name="grade" value="Mild">
                             Mild
                         </label>
                     
-                        <label class="radio-label mt-4 ml-2 text-white" for="option11">
+                        <label class="radio-label mt-4 ml-2 text-white btn" for="option11">
                             <input type="radio" id="option11" name="grade" value="grade 1">
                             Grade 1
                         </label>
                     
-                        <label class="radio-label mt-4 ml-2 text-white" for="option12">
+                        <label class="radio-label mt-4 ml-2 text-white btn" for="option12">
                             <input type="radio" id="option12" name="grade" value="grade 2">
                             Grade 2
                         </label>
                     
-                        <label class="radio-label mt-4 ml-2 text-white" for="option13">
+                        <label class="radio-label mt-4 ml-2 text-white btn" for="option13">
                             <input type="radio" id="option13" name="grade" value="grade 3">
                             Grade 3
                         </label>
                     
-                        <label class="radio-label mt-4 ml-2 text-white" for="option14">
+                        <label class="radio-label mt-4 ml-2 text-white btn" for="option14">
                             <input type="radio" id="option14" name="grade" value="grade 4">
                             Grade 4
                         </label>
-                        <label class="radio-label mt-4 ml-2 text-white" for="option15">
+                        <label class="radio-label mt-4 ml-2 text-white btn" for="option15">
                             <input type="radio" id="option14" name="grade" value="none">
                             None
                         </label>
@@ -189,64 +198,68 @@
                 </div>
                 <div class = "flex-horizontal">
                     <form>
-                        <label class="checkbox-label mt-4 ml-2 text-white" for="option1">
+                        <label class="checkbox-label mt-4 ml-2 text-white btn" for="option1">
                             <input type="checkbox" id="ost" name="leftregion" value="Normal">
                                 Normal
                         </label>
-                        <label class="checkbox-label mt-4 ml-2 text-white" for="option1">
+                        <label class="checkbox-label mt-4 ml-2 text-white btn" for="option1">
                             <input type="checkbox" id="rjs" name="leftregion" value="Osteophyte">
                                 Osteophytes
                             </label>
                     
-                        <label class="checkbox-label mt-4 ml-2 text-white" for="option2">
+                        <label class="checkbox-label mt-4 ml-2 text-white btn" for="option2">
                             <input type="checkbox" id="option2" name="leftregion" value="Reducing Joint Space">
                             Reducing Joint Space
                         </label>
                     
-                        <label class="checkbox-label mt-4 ml-2 text-white" for="option3">
+                        <label class="checkbox-label mt-4 ml-2 text-white btn" for="option3">
                             <input type="checkbox" id="option3" name="leftregion" value="Sclerosis">
                             Sclerosis
                         </label>
                     
-                        <label class="checkbox-label mt-4 ml-2 text-white" for="option4">
+                        <label class="checkbox-label mt-4 ml-2 text-white btn" for="option4">
                             <input type="checkbox" id="option3" name="leftregion" value="Loose Bodies">
                                 Loose Bodies
                         </label>
                 
-                        <label class="checkbox-label mt-4 ml-2 text-white" for="option5">
+                        <label class="checkbox-label mt-4 ml-2 text-white btn" for="option5">
                             <input type="checkbox" id="option3" name="leftregion" value="Fabella">
                             Fabella
                         </label>
                     
-                        <label class="checkbox-label mt-4 ml-2 text-white" for="option6">
+                        <label class="checkbox-label mt-4 ml-2 text-white btn" for="option6">
                             <input type="checkbox" id="option3" name="leftregion" value="Post OP">
                                 Post OP
                         </label>
                     
-                        <label class="checkbox-label mt-4 ml-2 text-white" for="option7">
+                        <label class="checkbox-label mt-4 ml-2 text-white btn" for="option7">
                             <input type="checkbox" id="option3" name="leftregion" value="Total Knee Replacement">
                                 Total Knee Replacement
                         </label>
                     
-                        <label class="checkbox-label mt-4 ml-2 text-white" for="option8">
+                        <label class="checkbox-label mt-4 ml-2 text-white btn" for="option8">
                             <input type="checkbox" id="option3" name="leftregion" value="Prominent Tibial Spike">
                                 Prominent Tibial Spike
                         </label>
                     
-                        <label class="checkbox-label mt-4 ml-2 text-white" for="option9">
+                        <label class="checkbox-label mt-4 ml-2 text-white btn" for="option9">
                             <input type="checkbox" id="option3" name="leftregion" value="Partial Knee Replacement">
                             Partial Knee Replacement
                         </label>
 
-                        <label class="checkbox-label mt-4 ml-2 text-white" for="option10">
+                        <label class="checkbox-label mt-4 ml-2 text-white btn" for="option10">
                             <input type="checkbox" id="option3" name="leftregion" value="Cyst">
                             Cyst
                         </label>
 
-                        <label class="checkbox-label mt-4 ml-2 text-white" for="option11">
+                        <label class="checkbox-label mt-4 ml-2 text-white btn" for="option11">
                             <input type="checkbox" id="option3" name="leftregion" value="Sclerotic Changes">
                             Sclerotic Changes
                         </label>
+                        <label class="checkbox-label mt-4 ml-2 text-white btn" for="option11">
+                            <input type="checkbox" id="slc" name="leftregion" value="ACL Reconstruction">
+                            ACL Reconstruction
+                        </label>                        
                     </form>
                 
                 </div>
@@ -255,27 +268,27 @@
                         Grade:
                     </label>
                     <form>
-                        <label class="radio-label mt-4 ml-2 text-white" for="option10">
+                        <label class="radio-label mt-4 ml-2 text-white btn" for="option10">
                             <input type="radio" id="option10" name="leftgrade" value="Mild">
                             Mild
                         </label>
                     
-                        <label class="radio-label mt-4 ml-2 text-white" for="option11">
+                        <label class="radio-label mt-4 ml-2 text-white btn" for="option11">
                             <input type="radio" id="option11" name="leftgrade" value="grade 1">
                             Grade 1
                         </label>
                     
-                        <label class="radio-label mt-4 ml-2 text-white" for="option12">
+                        <label class="radio-label mt-4 ml-2 text-white btn" for="option12">
                             <input type="radio" id="option12" name="leftgrade" value="grade 2">
                             Grade 2
                         </label>
                     
-                        <label class="radio-label mt-4 ml-2 text-white" for="option13">
+                        <label class="radio-label mt-4 ml-2 text-white btn" for="option13">
                             <input type="radio" id="option13" name="leftgrade" value="grade 3">
                             Grade 3
                         </label>
                     
-                        <label class="radio-label mt-4 ml-2 text-white" for="option14">
+                        <label class="radio-label mt-4 ml-2 text-white btn" for="option14">
                             <input type="radio" id="option14" name="leftgrade" value="grade 4">
                             Grade 4
                         </label>
@@ -293,63 +306,68 @@
                 </div>
                 <div class = "flex-horizontal">
                     <form>
-                        <label class="checkbox-label mt-4 ml-2 text-white" for="option1">
+                        <label class="checkbox-label mt-4 ml-2 text-white btn" for="option1">
                             <input type="checkbox" id="nrm" name="rightregion" value="Normal">
                                 Normal
                         </label>
-                        <label class="checkbox-label mt-4 ml-2 text-white" for="option1">
+                        <label class="checkbox-label mt-4 ml-2 text-white btn" for="option1">
                             <input type="checkbox" id="ost" name="rightregion" value="Osteophyte">
                                 Osteophytes
                         </label>
                     
-                        <label class="checkbox-label mt-4 ml-2 text-white" for="option2">
+                        <label class="checkbox-label mt-4 ml-2 text-white btn" for="option2">
                             <input type="checkbox" id="rjs" name="rightregion" value="Reducing Joint Space">
                             Reducing Joint Space
                         </label>
                     
-                        <label class="checkbox-label mt-4 ml-2 text-white" for="option3">
+                        <label class="checkbox-label mt-4 ml-2 text-white btn" for="option3">
                             <input type="checkbox" id="option3" name="rightregion" value="Sclerosis">
                             Sclerosis
                         </label>
                     
-                        <label class="checkbox-label mt-4 ml-2 text-white" for="option4">
+                        <label class="checkbox-label mt-4 ml-2 text-white btn" for="option4">
                             <input type="checkbox" id="option3" name="rightregion" value="Loose Bodies">
                                 Loose Bodies
                         </label>
                 
-                        <label class="checkbox-label mt-4 ml-2 text-white" for="option5">
+                        <label class="checkbox-label mt-4 ml-2 text-white btn" for="option5">
                             <input type="checkbox" id="option3" name="rightregion" value="Fabella">
                             Fabella
                         </label>
                     
-                        <label class="checkbox-label mt-4 ml-2 text-white" for="option6">
+                        <label class="checkbox-label mt-4 ml-2 text-white btn" for="option6">
                             <input type="checkbox" id="option3" name="rightregion" value="Post OP">
                                 Post OP
                         </label>
                     
-                        <label class="checkbox-label mt-4 ml-2 text-white" for="option7">
+                        <label class="checkbox-label mt-4 ml-2 text-white btn" for="option7">
                             <input type="checkbox" id="option3" name="rightregion" value="Total Knee Replacement">
                                 Total Knee Replacement
                         </label>
                     
-                        <label class="checkbox-label mt-4 ml-2 text-white" for="option8">
+                        <label class="checkbox-label mt-4 ml-2 text-white btn" for="option8">
                             <input type="checkbox" id="option3" name="rightregion" value="Prominent Tibial Spike">
                                 Prominent Tibial Spike
                         </label>
                     
-                        <label class="checkbox-label mt-4 ml-2 text-white" for="option9">
+                        <label class="checkbox-label mt-4 ml-2 text-white btn" for="option9">
                             <input type="checkbox" id="option3" name="rightregion" value="Partial Knee Replacement">
                             Partial Knee Replacement
                         </label>
 
-                        <label class="checkbox-label mt-4 ml-2 text-white" for="option10">
+                        <label class="checkbox-label mt-4 ml-2 text-white btn" for="option10">
                             <input type="checkbox" id="option3" name="rightregion" value="Cyst">
                             Cyst
                         </label>
-                        <label class="checkbox-label mt-4 ml-2 text-white" for="option11">
+                        <label class="checkbox-label mt-4 ml-2 text-white btn" for="option11">
                             <input type="checkbox" id="option3" name="rightregion" value="Sclerotic Changes">
                             Sclerotic Changes
                         </label>
+                        <label class="checkbox-label mt-4 ml-2 text-white btn" for="option11">
+                            <input type="checkbox" id="slc" name="rightregion" value="ACL Reconstruction">
+                            ACL Reconstruction
+                        </label>                           
+                        
                     </form>
                 
                 </div>
@@ -358,31 +376,31 @@
                         Grade:
                     </label>
                     <form>
-                        <label class="radio-label mt-4 ml-2 text-white" for="option10">
+                        <label class="radio-label mt-4 ml-2 text-white btn" for="option10">
                             <input type="radio" id="option10" name="rightgrade" value="Mild">
                             Mild
                         </label>
-                    
-                        <label class="radio-label mt-4 ml-2 text-white" for="option11">
+                     
+                        <label class="radio-label mt-4 ml-2 text-white btn" for="option11">
                             <input type="radio" id="option11" name="rightgrade" value="grade 1">
                             Grade 1
                         </label>
                     
-                        <label class="radio-label mt-4 ml-2 text-white" for="option12">
+                        <label class="radio-label mt-4 ml-2 text-white btn" for="option12">
                             <input type="radio" id="option12" name="rightgrade" value="grade 2">
                             Grade 2
                         </label>
                     
-                        <label class="radio-label mt-4 ml-2 text-white" for="option13">
+                        <label class="radio-label mt-4 ml-2 text-white btn" for="option13">
                             <input type="radio" id="option13" name="rightgrade" value="grade 3">
                             Grade 3
                         </label>
                     
-                        <label class="radio-label mt-4 ml-2 text-white" for="option14">
+                        <label class="radio-label mt-4 ml-2 text-white btn" for="option14">
                             <input type="radio" id="option14" name="rightgrade" value="grade 4">
                             Grade 4
                         </label>
-                        <label class="radio-label mt-4 ml-2 text-white" for="option15">
+                        <label class="radio-label mt-4 ml-2 text-white btn" for="option15">
                             <input type="radio" id="option14" name="rightgrade" value="none">
                             None
                         </label>
